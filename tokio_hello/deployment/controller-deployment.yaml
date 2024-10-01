@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pinger-controller
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pinger-controller
+  template:
+    metadata:
+      labels:
+        app: pinger-controller
+    spec:
+      serviceAccountName: pinger-operator  # Add this line
+      containers:
+      - name: pinger-controller
+        image: pinger-operator:0.0.3
+        imagePullPolicy: Never  # Add this line

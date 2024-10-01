@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pinger-operator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pinger-operator
+  template:
+    metadata:
+      labels:
+        app: pinger-operator
+    spec:
+      containers:
+      - name: pinger-operator
+        image: pinger-operator:latest
+        imagePullPolicy: Never

@@ -1,0 +1,7 @@
+apiVersion: example.com/v1
+kind: Pinger
+metadata:
+  name: test-pinger
+  namespace: default
+spec:
+  url: "https://www.example.com"
